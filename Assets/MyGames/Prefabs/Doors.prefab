@@ -536,10 +536,10 @@ MonoBehaviour:
   rightDoorText: {fileID: 8453583511595979820}
   leftDoorText: {fileID: 7181115469465496770}
   collider: {fileID: 1983363787650476390}
-  rightDoorBonusType: 3
-  rightDoorBonusAmount: 2
-  leftDoorBonusType: 3
-  leftDoorBonusAmount: 3
+  rightDoorBonusType: 0
+  rightDoorBonusAmount: 5
+  leftDoorBonusType: 0
+  leftDoorBonusAmount: 5
   bonusColor: {r: 0.5446216, g: 1, b: 0.08018869, a: 0.5176471}
   PenaltyColor: {r: 0.9339623, g: 0.15105014, b: 0.022027409, a: 0.5176471}
 --- !u!65 &1983363787650476390
