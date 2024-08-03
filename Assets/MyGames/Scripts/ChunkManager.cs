@@ -8,9 +8,8 @@ public class ChunkManager : MonoBehaviour
     public static ChunkManager instance;
 
     [Header("Elements")]
-    [SerializeField] private Chunk[] chunkPrefab;
-    [SerializeField] private Chunk[] chunkLevels;
-
+    [SerializeField] private LevelSO[] levels;
+    
     private GameObject finishLine;
 
     private void Awake()
@@ -27,18 +26,18 @@ public class ChunkManager : MonoBehaviour
 
     void Start()
     {
-        CreateOrderLevels();
+        Generatelevels();
         finishLine = GameObject.FindWithTag("Finish");
     }
 
-    private void CreateOrderLevels()
+    private void CreateLevels(Chunk[] levelChunks)
     {
         Vector3 chunkPosition = Vector3.zero;
 
         // thuật toán đặt các khối với pivot nằm giữa nối tiếp nhau
-        for (int i = 0; i < chunkLevels.Length; i++)
+        for (int i = 0; i < levelChunks.Length; i++)
         {
-            Chunk chunkToCreate = chunkLevels[i];
+            Chunk chunkToCreate = levelChunks[i];
 
             if (i > 0) // kiểm tra nếu là khối thứ 2 trở đi thì chạy code trong if
             {                                                     // tính toán điểm ở giữa của khối,
@@ -46,7 +45,7 @@ public class ChunkManager : MonoBehaviour
                                                                   // thì z = 5 + 20/2 = 15 ( là điểm giữa của khối thứ 2),
                                                                   // vậy khối thứ 2 sinh ra từ 5 đến 25 có 15 ở giữa
             }
-                                                                                                            // sinh ra ở vị trí chunk position = (0,0,0) =>  z = 0
+            // sinh ra ở vị trí chunk position = (0,0,0) =>  z = 0
             Chunk chunkInstance = Instantiate(chunkToCreate, chunkPosition, Quaternion.identity, transform);// ví dụ khối 1 dài z = 10 đơn vị,
                                                                                                             // trục của khối nằm ở giữa cho nên vị trí của trục sinh ra ở vị trí 0
                                                                                                             // cho nên khối đầu tiên dài từ -5 đến 5 do z = 10 đơn vị và ở giữa là 0
@@ -55,22 +54,15 @@ public class ChunkManager : MonoBehaviour
 
         }
     }
-    
-    private void CreateRandomLevels()
+
+    private void Generatelevels()
     {
-        Vector3 chunkPosition = Vector3.zero;
-        for (int i = 0; i < 5; i++)
-        {
-            Chunk chunkToCreate = chunkPrefab[Random.Range(0, chunkPrefab.Length)];
+        int runnerLevel = GetLevels(); // Lấy cấp độ hiện tại;
 
-            if (i > 0)
-            {
-                chunkPosition.z += chunkToCreate.GetLength() / 2;
-            }
+        runnerLevel = runnerLevel % levels.Length;// đảm bảo cấp độ luôn nằm trong khoảng levels.Length 
+        LevelSO level = levels[runnerLevel]; // Lấy thông tin cấp độ hiện tại
 
-            Chunk chunkInstance = Instantiate(chunkToCreate, chunkPosition, Quaternion.identity, transform);
-            chunkPosition.z += chunkInstance.GetLength() / 2;
-        }
+        CreateLevels(level.chunks);
     }
 
     public float GetFinishZ()

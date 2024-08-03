@@ -323,6 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2ec0e35987abb4c9efcfa8f4b8f054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnimator: {fileID: 137817814}
   runnersParents: {fileID: 256908753}
   runnerPrefabs: {fileID: 6837835885612146532, guid: a9f9663841b0397478a4d022fdf8ea9f, type: 3}
   radius: 0.5
@@ -1176,7 +1177,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.22975291, y: 0.0000000187227, z: -0.0000000044198294, w: 0.973249}
+  m_LocalRotation: {x: 0.22975291, y: -0.0000000187227, z: 0.0000000044198294, w: 0.973249}
   m_LocalPosition: {x: 0, y: 5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1417,7 +1418,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1337917015}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.22975291, y: 0.0000000187227, z: -0.0000000044198294, w: 0.973249}
+  m_LocalRotation: {x: 0.22975291, y: -0.0000000187227, z: 0.0000000044198294, w: 0.973249}
   m_LocalPosition: {x: 0, y: 5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1888,20 +1889,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d72a4db59090ac84f8f2ae65d81c0341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chunkPrefab:
-  - {fileID: 2353481083125471417, guid: 140e7811be8a3374f833c13ad2b99a27, type: 3}
-  - {fileID: 581479247444125458, guid: 9e876f4d6614727479f9e4142ed2bea6, type: 3}
-  - {fileID: 581479247444125458, guid: 58e40528b910c0c4c9b8d3a04bb83c3a, type: 3}
-  - {fileID: 5978384560787201719, guid: 1e1175875170a8642882eafcabced4ab, type: 3}
-  - {fileID: 5978384560787201719, guid: 63a4340af21ab9c468719accb9506aab, type: 3}
-  - {fileID: 2353481083125471417, guid: 597113df4ca9e9e4bb5fdf458f900f4d, type: 3}
-  - {fileID: 2353481083125471417, guid: 140e7811be8a3374f833c13ad2b99a27, type: 3}
-  - {fileID: 2353481083125471417, guid: a9d6bd07234248747988f3c6f7927e4a, type: 3}
-  chunkLevels:
-  - {fileID: 581479247444125458, guid: 9e876f4d6614727479f9e4142ed2bea6, type: 3}
-  - {fileID: 5978384560787201719, guid: 1e1175875170a8642882eafcabced4ab, type: 3}
-  - {fileID: 2353481083125471417, guid: 597113df4ca9e9e4bb5fdf458f900f4d, type: 3}
-  - {fileID: 2353481083125471417, guid: a9d6bd07234248747988f3c6f7927e4a, type: 3}
+  levels:
+  - {fileID: 11400000, guid: f97e441c810c6cb439613283e1e19c64, type: 2}
+  - {fileID: 11400000, guid: 70b5bdbdd1181cb48b9ecd7da69ad39a, type: 2}
+  - {fileID: 11400000, guid: 25c5539e68742854aba1fcc3b53683fc, type: 2}
 --- !u!1 &1579602701
 GameObject:
   m_ObjectHideFlags: 0
