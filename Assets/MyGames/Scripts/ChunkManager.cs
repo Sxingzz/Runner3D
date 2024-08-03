@@ -5,20 +5,37 @@ using UnityEngine.SceneManagement;
 
 public class ChunkManager : MonoBehaviour
 {
+    public static ChunkManager instance;
+
     [Header("Elements")]
     [SerializeField] private Chunk[] chunkPrefab;
     [SerializeField] private Chunk[] chunkLevels;
 
+    private GameObject finishLine;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
+
     void Start()
     {
         CreateOrderLevels();
+        finishLine = GameObject.FindWithTag("Finish");
     }
 
     private void CreateOrderLevels()
     {
         Vector3 chunkPosition = Vector3.zero;
 
-        // thuật toán đặt các khối với trục nằm giữa nối tiếp nhau
+        // thuật toán đặt các khối với pivot nằm giữa nối tiếp nhau
         for (int i = 0; i < chunkLevels.Length; i++)
         {
             Chunk chunkToCreate = chunkLevels[i];
@@ -54,6 +71,16 @@ public class ChunkManager : MonoBehaviour
             Chunk chunkInstance = Instantiate(chunkToCreate, chunkPosition, Quaternion.identity, transform);
             chunkPosition.z += chunkInstance.GetLength() / 2;
         }
+    }
+
+    public float GetFinishZ()
+    {
+        return finishLine.transform.position.z;
+    }
+
+    public int GetLevels()
+    {
+        return PlayerPrefs.GetInt("Level", 0);
     }
    
 }

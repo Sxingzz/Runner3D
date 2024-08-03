@@ -9,12 +9,6 @@ public class CrowdCounter : MonoBehaviour
     [SerializeField] private TextMeshPro crowdCountertext;
     [SerializeField] private Transform runnersParent;
     
-    void Start()
-    {
-        
-    }
-
-    
     void Update()
     {
         crowdCountertext.text = runnersParent.childCount.ToString();
