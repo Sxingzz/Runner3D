@@ -29,6 +29,7 @@ public class CrowdSystem : MonoBehaviour
         }
     }
 
+    // thuật toán tính toán phân bổ vị trí các object trong hình tròn theo hình xoắn ốc
     private Vector3 PlayerRunnerLocalPositions(int index)
     {
         float x = radius * Mathf.Sqrt(index) * Mathf.Cos(Mathf.Deg2Rad * index * angle);
