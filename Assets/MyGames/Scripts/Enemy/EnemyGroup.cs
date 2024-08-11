@@ -24,6 +24,7 @@ public class EnemyGroup : MonoBehaviour
         {
             Vector3 enemyLocalPosition = EnemyRunnerLocalPositions(i);
 
+            // TransformPoint: Chuyển đổi local space sang vị trí trong world space
             Vector3 enemyWorldPosition = enemyParent.TransformPoint(enemyLocalPosition);
 
             Instantiate(enemyPrefab, enemyWorldPosition, Quaternion.identity, enemyParent);

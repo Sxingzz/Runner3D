@@ -7,8 +7,6 @@ public enum BonusType { Addition, Difference, Product, Division }
 public class Doors : MonoBehaviour
 {
     [Header("Elements")]
-    //[SerializeField] private SpriteRenderer rightDoorRenderer;
-    //[SerializeField] private SpriteRenderer leftDoorRenderer;
     [SerializeField] private MeshRenderer rightDoorRenderer;
     [SerializeField] private MeshRenderer leftDoorRenderer;
     [SerializeField] private TextMeshPro rightDoorText;
