@@ -60,6 +60,10 @@ public class PlayerController : MonoBehaviour
         {
             StopMoving();
         }
+        else if (gameState == GameManager.GameState.LevelComplete)
+        {
+            StopMoving();
+        }
     }
 
     private void StartMoving()

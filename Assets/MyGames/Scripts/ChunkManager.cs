@@ -26,6 +26,7 @@ public class ChunkManager : MonoBehaviour
 
     void Start()
     {
+        PlayerPrefs.DeleteAll();
         Generatelevels();
         finishLine = GameObject.FindWithTag("Finish");
     }
@@ -72,7 +73,23 @@ public class ChunkManager : MonoBehaviour
 
     public int GetLevels()
     {
-        return PlayerPrefs.GetInt("Level", 0);
+        if (!PlayerPrefs.HasKey("Level"))
+        {
+            PlayerPrefs.SetInt("Level", 0);
+        }
+
+        int level = PlayerPrefs.GetInt("Level", 0);
+        Debug.Log("Retrieved Level: " + level);
+        return level;
     }
-   
+
+    public void NextLevel()
+    {
+        int currentLevel = GetLevels();
+        int nextLevel = currentLevel + 1;
+        PlayerPrefs.SetInt("Level", nextLevel);
+        PlayerPrefs.Save();
+        Debug.Log("Saved Level: " + nextLevel);
+    }
+
 }

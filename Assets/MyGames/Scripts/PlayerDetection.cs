@@ -33,7 +33,8 @@ public class PlayerDetection : MonoBehaviour
             {
                 Debug.Log("Hit Finish Line");
                 PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
-                SceneManager.LoadScene(0);
+                GameManager.Instance.SetGameState(GameManager.GameState.LevelComplete);
+                //SceneManager.LoadScene(0);
             }
 
         }

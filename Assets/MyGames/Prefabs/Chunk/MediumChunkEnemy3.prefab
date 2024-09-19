@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 2303947769987146284}
   - component: {fileID: 5978384560787201719}
   m_Layer: 0
-  m_Name: MediumChunkEnemy10
+  m_Name: MediumChunkEnemy3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,7 +162,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2468444352454973960, guid: bd2d0705a0c0b834d94557a00e446f16, type: 3}
       propertyPath: amount
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2841963025970864452, guid: bd2d0705a0c0b834d94557a00e446f16, type: 3}
       propertyPath: m_LocalPosition.x
